@@ -1,0 +1,170 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+    <title>SlickGrid example 1: Basic grid</title>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="./libs/SlickGrid-2.4.14/SlickGrid-2.4.14/slick.grid.css" type="text/css" />
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/blitzer/jquery-ui.min.css" type="text/css" />
+
+    <!-- <link rel="stylesheet" href="examples.css" type="text/css" /> -->
+
+    <style>
+        .cell-title {
+
+            font-weight: bold;
+
+        }
+
+
+
+        .cell-effort-driven {
+
+            text-align: center;
+
+        }
+
+
+
+        .green {
+
+            background-color: #aaffaa;
+
+        }
+
+        .red {
+
+            background-color: #ff7777;
+
+        }
+
+        .orange {
+
+            background-color: #ffbb66;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    Reference:
+    <ul>
+        <li>https://github.com/6pac/SlickGrid/wiki/Examples</li>
+    </ul>
+
+    <table width="100%">
+
+        <tr>
+
+            <td valign="top" width="50%">
+
+                <div id="myGrid" style="width:600px;height:500px;"></div>
+
+            </td>
+
+            <td valign="top">
+
+                <h2>Demonstrates:</h2>
+
+                <ul>
+
+                    <li>basic grid with minimal configuration</li>
+
+                </ul>
+
+                <h2>View Source:</h2>
+
+                <ul>
+
+                    <li><A href="https://github.com/6pac/SlickGrid/blob/master/examples/example1-simple.html"
+                            target="_sourcewindow"> View the source for this example on Github</a></li>
+
+                </ul>
+
+            </td>
+
+        </tr>
+
+    </table>
+
+    <script src="./libs/jquery.event.drag-2.2/jquery.event.drag-2.2/jquery.event.drag-2.2.js"></script>
+
+    <script src="./libs/SlickGrid-2.4.14/SlickGrid-2.4.14/slick.core.js"></script>
+
+    <script src="./libs/SlickGrid-2.4.14/SlickGrid-2.4.14/slick.grid.js"></script>
+    <script>
+
+        var grid;
+
+        var columns = [
+
+            { id: "title", name: "Title", field: "title" },
+
+            { id: "duration", name: "Duration", field: "duration" },
+
+            { id: "%", name: "% Complete", field: "percentComplete" },
+
+            { id: "start", name: "Start", field: "start" },
+
+            { id: "finish", name: "Finish", field: "finish" },
+
+            { id: "effort-driven", name: "Effort Driven", field: "effortDriven" }
+
+        ];
+
+
+
+        var options = {
+
+            enableCellNavigation: true,
+
+            enableColumnReorder: false
+
+        };
+
+
+
+        $(function () {
+
+            var data = [];
+
+            for (var i = 0; i < 500; i++) {
+
+                data[i] = {
+
+                    title: "Task " + i,
+
+                    duration: "5 days",
+
+                    percentComplete: Math.round(Math.random() * 100),
+
+                    start: "01/01/2009",
+
+                    finish: "01/05/2009",
+
+                    effortDriven: (i % 5 == 0)
+
+                };
+
+            }
+
+
+
+            grid = new Slick.Grid("#myGrid", data, columns, options);
+
+        })
+
+    </script>
+</body>
+
+</html>
